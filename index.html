@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Taxslabs</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body>
+  
+    <div class="main">
+      <div>
+        <input id="CTC" type="number" placeholder="Your Annual CTC" />
+        <input id="rent" type="number" placeholder="Annual rent paid" />
+        <input id="80C" type="number" placeholder="Total 80C value" />
+        <input id="stnd" type="number" placeholder="Standard Dedcution max 50k" />
+        <button onclick="oldTaxslab() ">submit</button>
+      </div>
+      <div id="taxable" class="taxable">Your Total taxable income is 0</div>
+      <div>
+        
+        <h2>Tax calculation as per old slab</h2>
+      </div>
+      <div>
+        <table>
+          <tr>
+            <th>Tax slabs</th>
+            <th>Tax Rate</th>
+            <th>Applicable Amount</th>
+            <th>Balance Amount</th>
+            <th>Tax Amount</th>
+          </tr>
+          <tr>
+            <td>0-2,50,000</td>
+            <td>0%</td>
+            <td id="row1_col1"></td>
+            <td id="row1_col2"></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>2,50,001-5,00,000</td>
+            <td>5%</td>
+            <td id="row2_col1"></td>
+            <td id="row2_col2"></td>
+            <td id="Five%value"></td>
+          </tr>
+          <tr>
+            <td>5,00,001-10,000,00</td>
+            <td>20%</td>
+            <td id="row3_col1"></td>
+            <td id="row3_col2"></td>
+            <td id="Twenty%value"></td>
+          </tr>
+          <tr>
+            <td>Above 10,00,000</td>
+            <td>30%</td>
+            <td id="row4_col1"></td>
+            <td></td>
+            <td id="Thirty%value"></td>
+          </tr>
+          <tr>
+            <td>Sub Total</td>
+            <td></td>
+            <td id="total"></td>
+            <td></td>
+            <td id="SubtotalTax"></td>
+          </tr>
+          <tr>
+            <td>Surcharge</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td id="surchageTax"></td>
+          </tr>
+          <tr>
+            <td>Helath and Edu Cess</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td id="edc_cess"></td>
+          </tr>
+          <tr>
+            <td>Tax credit (Sec 87A)</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td id="taxRebate"></td>
+          </tr>
+          <tr>
+            <td>Total Tax payabe</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td id="totalTax"></td>
+          </tr>
+          <tr>
+            <td>Payable per month</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td id="monthlyPay"></td>
+          </tr>
+        </table>
+      </div>
+    <h2>Tax calculation as per new slab</h2>
+      <table>
+        <tr>
+          <th>Tax slabs</th>
+          <th>Tax Rate</th>
+          <th>Applicable Amount</th>
+          <th>Balance Amount</th>
+          <th>Tax Amount</th>
+        </tr>
+        <tr>
+          <td>0-2,50,000</td>
+          <td>0%</td>
+          <td id="Appl_new_row1_col1" ></td>
+          <td id="Bal_new_row1_col2"></td>
+          <td ></td>
+        </tr>
+        <tr>
+          <td>2,50,001-5,00,000</td>
+          <td>5%</td>
+          <td id="Appl_new_row2_col1" ></td>
+          <td id="Bal_new_row2_col2"></td>
+          <td id="new_tax_5%"></td>
+        </tr>
+        <tr>
+          <td>5,00,001-7,50,000</td>
+          <td>10%</td>
+          <td id="Appl_new_row3_col1" ></td>
+          <td id="Bal_new_row3_col2"></td>
+          <td id="new_tax_10%"></td>
+        </tr>
+        <tr>
+          <td>7,50,000 - 10,00,000</td>
+          <td>15%</td>
+          <td id="Appl_new_row4_col1"></td>
+          <td id="Bal_new_row4_col2"></td>
+          <td id="new_tax_15%"></td>
+        </tr>
+        <tr>
+          <td>10,00,001 - 12,50,000</td>
+          <td>20%</td>
+          <td id="Appl_new_row5_col1"></td>
+          <td id="Bal_new_row5_col2"></td>
+          <td id="new_tax_20%"></td>
+        </tr>
+        <tr>
+          <td>12,50,001 - 15,00,000</td>
+          <td>25%</td>
+          <td id="Appl_new_row6_col1"></td>
+          <td id="Bal_new_row6_col2"></td>
+          <td id="new_tax_25%"></td>
+        </tr>
+        <tr>
+          <td>Above 15,00,001</td>
+          <td>30%</td>
+          <td id="Appl_new_row7_col1"></td>
+          <td></td>
+          <td id="new_tax_30%"></td>
+        </tr>
+        <tr>
+          <td>Sub Total</td>
+          <td></td>
+          <td id="new_taxSubApl_col1"></td>
+          <td></td>
+          <td id="new_subTaxrow" ></td>
+        </tr>
+        <tr>
+          <td>Surcharge</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td id="new_surch"></td>
+        </tr>
+        <tr>
+          <td>Helath and Edu Cess</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td id="new_tax_edu"></td>
+        </tr>
+        <tr>
+          <td>Tax Credit (Sec 87A)</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td id="new_87Ataxcol"></td>
+        </tr>
+        <tr>
+          <td>Total Tax payable</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td id="new_totalTaxrow"></td>
+        </tr>
+        <tr>
+          <td>Payable Per month</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td id="new_permonth"></td>
+        </tr>
+      </table>
+    </div>
+    </div>
+    
+
+    <script type="text/javascript" src="script.js"></script>
+  </body>
+</html>
