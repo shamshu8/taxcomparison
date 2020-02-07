@@ -7,16 +7,14 @@
   <body>
     
     <div class="main">
-      <div class="messagediv">
-
-      </div>
-      <div>
+      
+      <form>
         <input id="CTC" type="number" placeholder="Your Annual CTC" />
         <input id="rent" type="number" placeholder="Annual rent paid" />
         <input id="80C" type="number" placeholder="Total 80C value" />
-        <input id="stnd" type="number" placeholder="Standard Ded max 50k" />
-        <button onclick="oldTaxslab() ">submit</button>
-      </div>
+        <input id="stnd" type="number" placeholder="Std deduc fixed 50k" max="50000" />
+        <button type="submit">submit</button>
+      </form>
       <div id="taxable" class="taxable">Your Total taxable income is 0</div>
       <div>
         

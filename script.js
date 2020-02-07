@@ -1,4 +1,6 @@
-function oldTaxslab() {
+document.querySelector("form").addEventListener("submit", oldTaxslab);
+function oldTaxslab(event) {
+  event.preventDefault();
   var firstSlab = 250000;
   var secondSlab = 500000;
   var surch = 5000000;
