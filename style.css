@@ -1,5 +1,6 @@
 .main {
   width: 960px;
+  margin-right: 90%;
   margin: auto;
   margin-top: 2%;
 }
@@ -47,3 +48,10 @@ button {
   outline: none;
   background: lightsteelblue;
 }
+
+/* .messagediv {
+  border: 2px solid red;
+  min-width: 30%;
+  min-height: 10%;
+  /* position: fixed; */
+} */

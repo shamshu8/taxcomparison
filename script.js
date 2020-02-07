@@ -6,7 +6,29 @@ function oldTaxslab() {
   var CTC = parseInt(document.getElementById("CTC").value || 0);
   var C80 = document.getElementById("80C").value || 0;
   var stNd = document.getElementById("stnd").value || 0;
-  var taxable = parseInt(CTC) - parseInt(C80) - parseInt(stNd);
+  // HRA calculaions
+  var rent_paid = parseInt(document.getElementById("rent").value || 0);
+  var city = document.getElementById("yes_no");
+  var basicSalary = parseInt(CTC * (50 / 100));
+  var special_allow = parseInt(CTC * (20 / 100));
+  var hra_provided = parseInt(basicSalary * (40 / 100));
+  var d_a = parseInt(CTC - (basicSalary + special_allow + hra_provided));
+  var fifty_40_perc_hra = parseInt(basicSalary * (40 / 100));
+  var basic_plus_Da = parseInt((basicSalary + d_a) * (10 / 100));
+
+  var ten_perc_salary;
+  if (rent_paid > basic_plus_Da) {
+    ten_perc_salary = parseInt(rent_paid - basic_plus_Da);
+  } else {
+    ten_perc_salary = 0;
+  }
+
+  var hra_exemption = Math.min(
+    hra_provided,
+    fifty_40_perc_hra,
+    ten_perc_salary
+  );
+  var taxable = parseInt(CTC) - parseInt(C80) - parseInt(stNd) - hra_exemption;
   var Appl_row1 = document.getElementById("row1_col1");
   var bal_row1 = document.getElementById("row1_col2");
   var Appl_row2 = document.getElementById("row2_col1");
@@ -363,5 +385,3 @@ function oldTaxslab() {
   var new_permonthTax = document.getElementById("new_permonth");
   new_permonthTax.innerHTML = parseInt(new_totalTax_value / 12);
 }
-
-// 1000000
