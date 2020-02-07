@@ -10,7 +10,6 @@ function oldTaxslab(event) {
   var stNd = document.getElementById("stnd").value || 0;
   // HRA calculaions
   var rent_paid = parseInt(document.getElementById("rent").value || 0);
-  var city = document.getElementById("yes_no");
   var basicSalary = parseInt(CTC * (50 / 100));
   var special_allow = parseInt(CTC * (20 / 100));
   var hra_provided = parseInt(basicSalary * (40 / 100));
@@ -386,4 +385,23 @@ function oldTaxslab(event) {
 
   var new_permonthTax = document.getElementById("new_permonth");
   new_permonthTax.innerHTML = parseInt(new_totalTax_value / 12);
+
+  document.getElementById("old_taxpayable").innerHTML =
+    "Tax Payable as per Old Tax = " + totalTax_value;
+  document.getElementById("new_taxpayable").innerHTML =
+    "Tax Payable as per new Tax = " + new_totalTax_value;
+
+  // var diff_tax_value;
+  if (totalTax_value > new_totalTax_value) {
+    document.getElementById("diff_taxpayable").innerHTML =
+      " You are paying an extra tax of Rs " +
+      (totalTax_value - new_totalTax_value) +
+      " .It is better to admit new Tax slab ";
+  } else {
+    document.getElementById("diff_taxpayable").innerHTML =
+      " It is better to admit old tax slab  you can Save Rs  " +
+      (new_totalTax_value - totalTax_value);
+  }
+
+  document.getElementById("tax_message").classList.remove("display_none");
 }
