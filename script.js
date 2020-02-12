@@ -118,7 +118,7 @@ function oldTaxslab(event) {
   if (taxable > surch && taxable < surchCr) {
     surCharge_value = parseInt(surCharge_value * (10 / 100));
     surCharge.innerHTML = surCharge_value;
-  } else if (taxable < surch) {
+  } else if (taxable <= surch) {
     surCharge_value = 0;
     surCharge.innerHTML = surCharge_value;
   } else {
@@ -344,7 +344,7 @@ function oldTaxslab(event) {
   if (CTC > surch && CTC < surchCr) {
     new_surchrow_value = parseInt(new_surchrow_value * (10 / 100));
     new_surchrow.innerHTML = new_surchrow_value;
-  } else if (CTC < surch) {
+  } else if (CTC <= surch) {
     new_surchrow_value = 0;
     new_surchrow.innerHTML = new_surchrow_value;
   } else {
@@ -391,7 +391,7 @@ function oldTaxslab(event) {
   document.getElementById("new_taxpayable").innerHTML =
     "Tax Payable as per new Tax = " + new_totalTax_value;
 
-  // var diff_tax_value;
+  // diff_tax_value;
   if (totalTax_value > new_totalTax_value) {
     document.getElementById("diff_taxpayable").innerHTML =
       " You are paying an extra tax of Rs " +
