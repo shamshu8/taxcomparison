@@ -229,10 +229,10 @@ function oldTaxslab(event) {
 
   var new_bal_row2_value;
   if (new_bal_row1_value >= firstSlab) {
-    new_bal_row2_value = new_bal_row1_value - new_Appl_row2_value;
+    new_bal_row2_value = new_bal_row1_value - new_Appl_row2_value  ;
     new_bal_row2.innerHTML = new_bal_row2_value;
   } else {
-    new_bal_row2_value = new_bal_row1_value;
+    new_bal_row2_value =0;
     new_bal_row2.innerHTML = new_bal_row2_value;
   }
 
